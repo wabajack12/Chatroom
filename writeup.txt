@@ -1,0 +1,12 @@
+1. Owen Sheets
+
+2. First, I have no timeout implemented. I struggled sending messages for the four days and ran out of time to implement it. My intuitions on adding timeout would be to add a timer to my "client" struct. I have a flag that is set when a user has a username so I would reference that flag when the timer goes off. If the flag is set, do not close the connection. 
+
+Second, I am still having small errors passing messages between terminals. Occasionally when the string is 6-10 characters, the server will append garbage characters at the end of the message. I think this is due to an error in sending the correct amount of bytes. I looked at my ntohs & htons and think I have them correct but still the error persists.
+
+Third, If a participant disconnects and tries to reconnect under the same name, the server wil segfault. This error is due to my trie structure which does not have a mechanism to delete names. At this stage, I regret using the trie structure and because I do not know how to delete a node from the tree. Knowing what I know now, I would have stored the active names in an array and reference that.
+HOWEVER, it should be noted that in the original assignment PDF, it does not mention this functionality is required but a later FAQ clarified it is. When I made the decision to use the trie, I was unaware of this protocol requirement and would have made a different decision.
+
+3. To test my code, I ran my server/clients with other students code to test protocol. I also connected 255 observers & participants to test that aspect. I also tested sending messages, sending private messages, disconnecting participants and observers. 
+
+4. The most challenging aspect for me was figuring out the max socket descriptor to give to select. I spent four days trying to figure out why some of my observers got participant messages and how some participants could never get their username. It was because I was not saving the correct value of max sd. I normally used GDB to debug my C code but I learned this time around that GDB is close to worthless for networking debugging. 

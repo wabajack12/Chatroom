@@ -1,0 +1,8 @@
+Owen Sheets
+2-23-18
+
+1. I am being asked to develop a chatroom consisting of a server, participants and observers. There should be no blocking calls so as soon as a participant sends a message, it is delivered to all of the observers quickly if the message is public. My server needs to be able to handle up to 255 observers and participants. I will also need to add features such as private versus public messages.
+
+2. I anticipate the hardest part for me will be not using blocking calls to exchange data. I am also worried about having two different types of clients that I will need to keep track of. Finally, I always need to struggle with Strings in C (char* vs char[]) before I get it right so I will need to deal with that.
+
+3. I plan on using the Trie implenetation I used for the previous assignment to handle sending words. I will also use the readings on canvas that describe how to use select and poll. Finally, I will come to office hours if I need help. 
